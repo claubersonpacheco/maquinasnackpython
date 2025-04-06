@@ -25,7 +25,7 @@ class MaquinaSnacks:
         3. Agregar Nuevo Snack al Inventario
         4. Inventario Snacks
         5. Salir''')
-        return int(input('Elige un opcion: '))
+        return int(input('Elige una opción: '))
 
     def ejecutar_opcions(self, opcion):
         if opcion == 1:
@@ -37,10 +37,10 @@ class MaquinaSnacks:
         elif opcion == 4:
             self.servicio_snacks.mostrar_snacks()
         elif opcion == 5:
-            print('Regresar pronto')
+            print('Regresa pronto!')
             return True
         else:
-            print(f'Opcion invalida: {opcion}')
+            print(f'Opción inválida: {opcion}')
         return False
 
     def comprar_snack(self):
@@ -55,7 +55,7 @@ class MaquinaSnacks:
 
     def mostrar_ticket(self):
         if not self.productos:
-            print('No hat snacks en el ticket')
+            print('No hay snacks en el ticket')
         total = sum(snack.precio for snack in self.productos)
         print(f'Ticket de venta: {total}')
         for producto in self.productos:
