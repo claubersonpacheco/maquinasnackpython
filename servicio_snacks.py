@@ -1,14 +1,14 @@
 import os.path
-from maquina_snacks_proyecto.snack import Snack
+from snack import Snack
 
 class ServicioSnacks:
-    NOMBRE_ARQUIVO = 'snacks.txt'
+    NOMBRE_ARCHIVO = 'snacks.txt'
 
     def __init__(self):
         self.snacks = []
         # revisar si ya existe el archivo snacks
         # Si ya existe obtenemos los snacks del archivo
-        if os.path.isfile(self.NOMBRE_ARQUIVO):
+        if os.path.isfile(self.NOMBRE_ARCHIVO):
             self.snacks = self.obtener_snacks()
         # Sino, cargarmos algunos snacks iniciales
         else:
@@ -25,7 +25,7 @@ class ServicioSnacks:
 
     def guardar_snacks_archivo(self, snacks):
         try:
-            with open(self.NOMBRE_ARQUIVO, 'a') as archivo:
+            with open(self.NOMBRE_ARCHIVO, 'a') as archivo:
                 for snack in snacks:
                     archivo.write(f'{snack.escribir_snack()}\n')
         except Exception as e:
@@ -34,9 +34,9 @@ class ServicioSnacks:
     def obtener_snacks(self):
         snacks = []
         try:
-            with open(self.NOMBRE_ARQUIVO, 'r') as archivo:
+            with open(self.NOMBRE_ARCHIVO, 'r') as archivo:
                 for linea in archivo:
-                    if_snack, nombre, precio = linea.strip().split(',')
+                    id_snack, nombre, precio = linea.strip().split(',')
                     snack = Snack(nombre, float(precio))
                     snacks.append(snack)
         except Exception as e:
